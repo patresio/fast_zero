@@ -19,5 +19,8 @@ def test_root_deve_retorna_status_code_200():
 
 
 def test_root_html_deve_retornar_html():
+
     response = client.get('/html')
-    assert response.json() == '<h1>Olá Mundo!</h1>'
+
+    assert response.status_code == HTTPStatus.OK
+    assert '<h1> Olá Mundo </h1>' in response.text
